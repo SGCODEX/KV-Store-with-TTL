@@ -4,16 +4,12 @@
 
 Problem Statement: Build an in-memory key-value store exposed via REST API. Support SET (with optional TTL in seconds), GET, and DELETE. Expired keys should behave as if they don't exist.
 
----
-
 ## Introduction
 
 A simple in-memory key-value store built using Python and FastAPI.
 This project mimics basic behavior of systems like Redis, supporting key storage with optional expiration (TTL).
 
----
-
-## 🚀 Features
+## Features
 
 * Set key-value pairs
 * Optional TTL (Time-To-Live) in seconds
@@ -21,8 +17,6 @@ This project mimics basic behavior of systems like Redis, supporting key storage
 * Delete keys
 * REST API using FastAPI
 * Lazy expiration (keys are removed when accessed after expiry)
-
----
 
 ## How It Works
 
@@ -41,8 +35,6 @@ This project mimics basic behavior of systems like Redis, supporting key storage
   * If expired → it is deleted immediately
   * If valid → value is returned
 
----
-
 ## Project Structure
 
 ```
@@ -52,15 +44,11 @@ kv-store/
 │── models.py      # Request models (Pydantic)
 ```
 
----
-
 ## Installation
 
 ```bash
 pip install fastapi uvicorn
 ```
-
----
 
 ## Running the Server
 
@@ -73,8 +61,6 @@ Open:
 ```
 http://127.0.0.1:8000/docs
 ```
-
----
 
 ## API Endpoints
 
@@ -96,8 +82,6 @@ Request Body:
 
 * TTL is optional (in seconds)
 * If key exists → it is overwritten
-
----
 
 ### GET
 
@@ -122,15 +106,11 @@ If expired or not found:
 }
 ```
 
----
-
 ### DELETE
 
 ```
 DELETE /delete/{key}
 ```
-
----
 
 ## ⏳ TTL Behavior
 
@@ -142,15 +122,11 @@ DELETE /delete/{key}
   ```
 * Expired keys behave as if they don’t exist
 
----
-
 ## Limitations
 
 * Data is stored in memory → lost on server restart
 * No background cleanup of expired keys
 * Not thread-safe (single-thread usage recommended)
-
----
 
 ## Summary
 
